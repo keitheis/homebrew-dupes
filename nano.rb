@@ -10,6 +10,7 @@ class Nano < Formula
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}",
                           "--enable-color",
                           "--enable-extra",
                           "--enable-multibuffer",
