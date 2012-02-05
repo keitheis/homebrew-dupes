@@ -6,6 +6,16 @@ class Openssh < Formula
   sha1 'ac4e0055421e9543f0af5da607a72cf5922dcc56'
   version '5.9p1'
 
+  def options
+    [['--with-hpn', 'Use high performance patches']]
+  end
+
+  def patches
+    if ARGV.include? '--with-hpn'
+      'http://www.psc.edu/networking/projects/hpn-ssh/openssh-5.9p1-hpn13v12.diff.gz'
+    end
+  end
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking", "--with-libedit", "--prefix=#{prefix}"
     system "make"
