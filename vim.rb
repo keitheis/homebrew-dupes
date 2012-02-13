@@ -20,6 +20,7 @@ class Vim < Formula
                           "--enable-pythoninterp",
                           "--enable-rubyinterp",
                           "--with-ruby-command=/usr/bin/ruby",
+                          "--with-iconv",
                           "--with-features=huge"
     system "make"
     system "make install"
