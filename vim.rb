@@ -3,8 +3,8 @@ require 'formula'
 class Vim < Formula
   # Get stable versions from hg repo instead of downloading an increasing
   # number of separate patches.
-  url 'https://vim.googlecode.com/hg/', :revision => '992b24149a9e'
-  version '7.3.333'
+  url 'https://vim.googlecode.com/hg/', :revision => '72146e7f47fa'
+  version '7.3.444'
   homepage 'http://www.vim.org/'
 
   head 'https://vim.googlecode.com/hg/'
@@ -20,7 +20,6 @@ class Vim < Formula
                           "--enable-pythoninterp",
                           "--enable-rubyinterp",
                           "--with-ruby-command=/usr/bin/ruby",
-                          "--with-iconv",
                           "--with-features=huge"
     system "make"
     system "make install"
