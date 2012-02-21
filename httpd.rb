@@ -1,9 +1,9 @@
 require 'formula'
 
 class Httpd < Formula
-  url 'http://mirrors.ibiblio.org/pub/mirrors/apache/httpd/httpd-2.2.21.tar.bz2'
   homepage 'http://httpd.apache.org/'
-  sha1 'c02f9b05da9a7e316ff37d9053dc76a57ba51cb4'
+  url 'http://www.apache.org/dist/httpd/httpd-2.2.22.tar.bz2'
+  sha1 '766cd0843050a8dfb781e48b976f3ba6ebcf8696'
 
   skip_clean :all
 
