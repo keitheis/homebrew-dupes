@@ -1,15 +1,14 @@
 require 'formula'
 
 class Httpd < Formula
+  url 'http://mirrors.ibiblio.org/pub/mirrors/apache/httpd/httpd-2.2.21.tar.bz2'
   homepage 'http://httpd.apache.org/'
-  url 'http://mirrors.ibiblio.org/pub/mirrors/apache/httpd/httpd-2.4.1.tar.bz2'
   sha1 'c02f9b05da9a7e316ff37d9053dc76a57ba51cb4'
 
   skip_clean :all
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--enable-layout=GNU",
