@@ -1,8 +1,8 @@
 require 'formula'
 
 class Perl < Formula
-  url 'http://www.cpan.org/src/5.0/perl-5.14.2.tar.gz'
   homepage 'http://www.perl.org/'
+  url 'http://www.cpan.org/src/5.0/perl-5.14.2.tar.gz'
   md5 '3306fbaf976dcebdcd49b2ac0be00eb9'
 
   def options
@@ -18,8 +18,8 @@ class Perl < Formula
     args = [
         '-des',
         "-Dprefix=#{prefix}",
-        "-Dman1dir=#{prefix}/share/man/man1",
-        "-Dman3dir=#{prefix}/share/man/man3",
+        "-Dman1dir=#{man1}",
+        "-Dman3dir=#{man3}",
         '-Duseshrplib',
         '-Duselargefiles',
     ]
