@@ -4,7 +4,7 @@ These formulae duplicate software provided by OS X, though may provide more rece
 
 How do I install these formulae?
 --------------------------------
-Just `brew tap homebrew-dupes` and then `brew install <formula>`.
+Just `brew tap Homebrew/dupes` and then `brew install <formula>`.
 
 If the formula conflicts with one in mxcl/master, you can `brew install Homebrew/dupes/<formula>`.
 
