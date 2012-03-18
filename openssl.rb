@@ -8,20 +8,27 @@ class Openssl < Formula
   keg_only :provided_by_osx,
     "The OpenSSL provided by Leopard (0.9.7) is too old for some software."
 
+  def options
+    [['--64-bit', 'Build for the x86_64 architecture.']]
+  end
+
   def install
-    system "./config", "--prefix=#{prefix}",
-                       "--openssldir=#{etc}/openssl",
-                       "zlib-dynamic",
-                       "shared"
+    args = %W[./Configure
+              --prefix=#{prefix}
+              --openssldir=#{etc}/openssl
+              zlib-dynamic
+              shared]
+
+    args << if ARGV.include? '--64-bit'
+      'darwin64-x86_64-cc'
+    else
+      'darwin-i386-cc'
+    end
+
+    system "perl", *args
     ENV.deparallelize # Parallel compilation fails
     system "make"
     system "make test"
     system "make", "MANDIR=#{man}", "MANSUFFIX=ssl", "install"
-  end
-
-  def caveats; <<-EOS.undent
-    Note that the libraries built tend to be 32-bit only, even on 64-bit
-    capable platforms.
-    EOS
   end
 end
