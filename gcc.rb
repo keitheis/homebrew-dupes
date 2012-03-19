@@ -1,20 +1,8 @@
 require 'formula'
 
-# NOTE:
-#
-# Two exciting enhancements in GCC 4.6.0 are currently unavailable.
-#
-# Link-time optimization (LTO) is broken due to changes in XCode 3.2.6 and 4.0.
-# This should be fixed in GCC 4.6.1:
-#   http://lists.macosforge.org/pipermail/macports-dev/2011-March/014278.html
-#
-# (LTO doesn't seem to be fixed even in 4.6.2)
-#
-# GCC 4.6.0 adds the gccgo compiler for the Go language. However, gccgo "is
-# currently known to work on GNU/Linux and RTEMS. Solaris support is in
-# progress. It may or may not work on other platforms."
-#
-# It does not work on OS X. Yet.
+# NOTE: GCC 4.6.0 adds the gccgo compiler for the Go language. However,
+# gccgo "is currently known to work on GNU/Linux and RTEMS. Solaris support
+# is in progress. It may or may not work on other platforms."
 
 def cxx?
   ARGV.include? '--enable-cxx'
@@ -57,9 +45,9 @@ end
 
 class Gcc < Formula
   homepage 'http://gcc.gnu.org'
-  url 'http://ftpmirror.gnu.org/gcc/gcc-4.6.2/gcc-4.6.2.tar.bz2'
-  mirror 'http://ftp.gnu.org/gnu/gcc/gcc-4.6.2/gcc-4.6.2.tar.bz2'
-  md5 '028115c4fbfb6cfd75d6369f4a90d87e'
+  url 'http://ftpmirror.gnu.org/gcc/gcc-4.6.3/gcc-4.6.3.tar.bz2'
+  mirror 'http://ftp.gnu.org/gnu/gcc/gcc-4.6.3/gcc-4.6.3.tar.bz2'
+  md5 '773092fe5194353b02bb0110052a972e'
 
   depends_on 'gmp'
   depends_on 'libmpc'
@@ -121,7 +109,7 @@ class Gcc < Formula
       "--with-system-zlib",
       "--enable-stage1-checking",
       "--enable-plugin",
-      "--disable-lto",
+      "--enable-lto",
       "--disable-multilib"
     ]
 
