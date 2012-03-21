@@ -1,6 +1,6 @@
 require 'formula'
 
-class Patch < Formula
+class Gpatch < Formula
   homepage 'http://savannah.gnu.org/projects/patch/'
   # Use a slightly newer version with build fixes
   url 'http://alpha.gnu.org/gnu/patch/patch-2.6.1.136-31a7.tar.gz'
